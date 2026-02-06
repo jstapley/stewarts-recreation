@@ -324,6 +324,9 @@ export default function Home() {
                 <a href="#services" className="block text-gray-400 hover:text-yellow-400">Services</a>
                 <a href="#about" className="block text-gray-400 hover:text-yellow-400">About</a>
                 <a href="/contact" className="block text-gray-400 hover:text-yellow-400">Contact</a>
+                <a href="https://StapleyInc.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-yellow-400">
+                  Website by Stapley Inc
+                </a>
               </div>
             </div>
             <div>
