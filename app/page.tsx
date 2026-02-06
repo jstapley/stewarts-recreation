@@ -70,12 +70,12 @@ export default function Home() {
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Your One-Stop
                 <span className="block text-yellow-400">Recreation Shop</span>
               </h1>
               
-              <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-400 mb-8 leading-relaxed">
                 Full-service marine repair, snowmobile maintenance, and ATV services in Burks Falls, Ontario. 
                 Expert care for all your recreational needs.
               </p>
@@ -162,7 +162,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-gray-900/50 backdrop-blur-sm border border-yellow-400/20 rounded-2xl p-8 hover:border-yellow-400 transition-all hover:transform hover:scale-105 group">
               <div className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">

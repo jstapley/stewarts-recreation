@@ -21,7 +21,6 @@ export default function ContactPage() {
     try {
       console.log('Submitting form data:', formData);
       
-      // Call our API route which handles GHL integration
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -64,7 +63,6 @@ export default function ContactPage() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      {/* Navigation */}
       <nav className="fixed w-full z-50 bg-black/95 backdrop-blur-sm border-b border-yellow-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -90,24 +88,22 @@ export default function ContactPage() {
         </div>
       </nav>
 
-      {/* Header Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             Get In <span className="text-yellow-400">Touch</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
             Have questions or need service? Fill out the form below or give us a call. 
             We're here to help with all your recreational vehicle needs.
           </p>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
       <section className="py-12 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
@@ -157,13 +153,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Form and Map Section */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <div>
-              <div className="bg-gray-900/50 border border-yellow-400/20 rounded-2xl p-8">
+              <div className="bg-gray-900/50 border border-yellow-400/20 rounded-2xl p-6 sm:p-8">
                 <h2 className="text-3xl font-bold mb-6">
                   Send Us a <span className="text-yellow-400">Message</span>
                 </h2>
@@ -267,7 +261,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-500 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-yellow-400 text-black px-8 py-5 rounded-lg font-bold text-lg hover:bg-yellow-500 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
@@ -275,9 +269,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Map and Hours */}
             <div className="space-y-8">
-              {/* Google Map */}
               <div className="bg-gray-900/50 border border-yellow-400/20 rounded-2xl overflow-hidden h-[400px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.4419267893895!2d-79.39180492340473!3d45.62252287107436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d2acbe0b0b0b0b1%3A0x1234567890abcdef!2s326%20Ontario%20St%2C%20Burk's%20Falls%2C%20ON%20P0A%201C0!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
@@ -291,7 +283,6 @@ export default function ContactPage() {
                 />
               </div>
 
-              {/* Business Hours */}
               <div className="bg-gray-900/50 border border-yellow-400/20 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-yellow-400 mb-6">Business Hours</h3>
                 <div className="space-y-4">
@@ -314,7 +305,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Address Card */}
               <div className="bg-gray-900/50 border border-yellow-400/20 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-yellow-400 mb-4">Visit Our Shop</h3>
                 <div className="space-y-3 text-gray-300">
@@ -330,6 +320,19 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Floating Call Button - Mobile Only */}
+      <div className="fixed bottom-6 right-6 md:hidden z-50">
+        <a 
+          href="tel:7053823331"
+          className="flex items-center justify-center bg-yellow-400 text-black w-16 h-16 rounded-full shadow-2xl hover:bg-yellow-500 transition-all transform hover:scale-110 animate-pulse"
+          aria-label="Call Now"
+        >
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+        </a>
+      </div>
     </div>
   );
 }
