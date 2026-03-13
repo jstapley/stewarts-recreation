@@ -66,7 +66,7 @@ export default function Home() {
             <div>
               <div className="inline-block mb-4">
                 <span className="bg-yellow-400/10 text-yellow-400 px-4 py-2 rounded-full text-sm font-semibold border border-yellow-400/20">
-                  24 Hour Emergency Towing Available
+                  Expert Service & Storage Solutions
                 </span>
               </div>
               
@@ -76,7 +76,7 @@ export default function Home() {
               </h1>
               
               <p className="text-lg sm:text-xl text-gray-400 mb-8 leading-relaxed">
-                Full-service marine repair, snowmobile maintenance, and ATV services in Burks Falls, Ontario. 
+                Professional boat storage, marine repair, snowmobile maintenance, and ATV services in Burks Falls, Ontario. 
                 Expert care for all your recreational needs.
               </p>
 
@@ -91,8 +91,8 @@ export default function Home() {
 
               <div className="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-gray-800">
                 <div>
-                  <div className="text-3xl font-bold text-yellow-400">24/7</div>
-                  <div className="text-gray-400 text-sm">Emergency Towing</div>
+                  <div className="text-3xl font-bold text-yellow-400">Secure</div>
+                  <div className="text-gray-400 text-sm">Boat Storage</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-yellow-400">Full</div>
@@ -113,6 +113,13 @@ export default function Home() {
                 <div className="absolute inset-0 grid grid-cols-2 gap-6 p-8">
                   <div className="bg-gray-900/50 backdrop-blur-sm border border-yellow-400/30 rounded-2xl p-8 flex flex-col items-center justify-center hover:bg-yellow-400/10 transition-all hover:scale-105">
                     <svg className="w-20 h-20 text-yellow-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                    </svg>
+                    <span className="text-white font-semibold">Storage</span>
+                  </div>
+                  
+                  <div className="bg-gray-900/50 backdrop-blur-sm border border-yellow-400/30 rounded-2xl p-8 flex flex-col items-center justify-center hover:bg-yellow-400/10 transition-all hover:scale-105">
+                    <svg className="w-20 h-20 text-yellow-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                     <span className="text-white font-semibold">Marine</span>
@@ -130,13 +137,6 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                     <span className="text-white font-semibold">ATVs</span>
-                  </div>
-                  
-                  <div className="bg-gray-900/50 backdrop-blur-sm border border-yellow-400/30 rounded-2xl p-8 flex flex-col items-center justify-center hover:bg-yellow-400/10 transition-all hover:scale-105">
-                    <svg className="w-20 h-20 text-yellow-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                    </svg>
-                    <span className="text-white font-semibold">Storage</span>
                   </div>
                 </div>
               </div>
@@ -166,6 +166,16 @@ export default function Home() {
             <div className="bg-gray-900/50 backdrop-blur-sm border border-yellow-400/20 rounded-2xl p-8 hover:border-yellow-400 transition-all hover:transform hover:scale-105 group">
               <div className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Boat Storage</h3>
+              <p className="text-gray-400">Winterization packages, secure storage, shrink wrapping, and pontoon pickup/delivery</p>
+            </div>
+
+            <div className="bg-gray-900/50 backdrop-blur-sm border border-yellow-400/20 rounded-2xl p-8 hover:border-yellow-400 transition-all hover:transform hover:scale-105 group">
+              <div className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform">
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                 </svg>
               </div>
@@ -191,16 +201,6 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold mb-3">ATV Services</h3>
               <p className="text-gray-400">Repairs and modifications including winch installation, heated grips, and suspension</p>
-            </div>
-
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-yellow-400/20 rounded-2xl p-8 hover:border-yellow-400 transition-all hover:transform hover:scale-105 group">
-              <div className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform">
-                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-3">Boat Storage</h3>
-              <p className="text-gray-400">Winterization packages, storage, shrink wrapping, and pontoon pickup/delivery</p>
             </div>
           </div>
         </div>
@@ -261,10 +261,6 @@ export default function Home() {
               <div className="bg-gray-900/50 border border-yellow-400/20 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-yellow-400 mb-6">Opening Hours</h3>
                 <div className="space-y-4 text-gray-400">
-                  <div className="flex justify-between items-center pb-4 border-b border-gray-800">
-                    <span className="font-semibold">Emergency Towing</span>
-                    <span className="text-yellow-400 font-bold">24 HOURS</span>
-                  </div>
                   <div className="flex justify-between items-center pb-4 border-b border-gray-800">
                     <span>Monday - Friday</span>
                     <span>9:00 AM - 5:00 PM</span>
@@ -339,7 +335,6 @@ export default function Home() {
                 </p>
                 <p>326 Ontario Street</p>
                 <p>Burks Falls, ON, Canada</p>
-                <p className="text-yellow-400 font-semibold mt-4">24 Hour Emergency Towing</p>
               </div>
             </div>
           </div>
