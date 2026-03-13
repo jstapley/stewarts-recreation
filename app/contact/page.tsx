@@ -129,8 +129,8 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-400">Emergency Towing</div>
-                  <div className="text-lg font-bold text-yellow-400">24/7 Available</div>
+                  <div className="text-sm text-gray-400">Business Hours</div>
+                  <div className="text-lg font-bold text-yellow-400">Mon-Sat</div>
                 </div>
               </div>
             </div>
@@ -286,10 +286,6 @@ export default function ContactPage() {
               <div className="bg-gray-900/50 border border-yellow-400/20 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-yellow-400 mb-6">Business Hours</h3>
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-4 border-b border-gray-800">
-                    <span className="font-semibold">Emergency Towing</span>
-                    <span className="text-yellow-400 font-bold">24 HOURS</span>
-                  </div>
                   <div className="flex justify-between items-center pb-4 border-b border-gray-800">
                     <span className="text-gray-300">Monday - Friday</span>
                     <span className="text-white">9:00 AM - 5:00 PM</span>
