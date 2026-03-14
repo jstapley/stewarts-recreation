@@ -40,24 +40,56 @@ export async function POST(request: Request) {
     console.log('Contact saved to Supabase:', contactData);
 
     // Send emails
-    try {
-      // 1. Notification email to business
-      await resend.emails.send({
-        from: 'Stewarts Recreation <contact@stewartsrecreation.com>',
-        to: 'jeff@stapleyinc.com',
-        subject: `New Contact Form Submission from ${data.name}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Phone:</strong> ${data.phone}</p>
-          <p><strong>Vehicle Type:</strong> ${data.vehicleType || 'Not specified'}</p>
-          <p><strong>Message:</strong></p>
-          <p>${data.message}</p>
-          <hr>
-          <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
-        `
-      });
+          try {
+            // 1. Notification email to business
+            await resend.emails.send({
+              from: 'Stewarts Recreation <contact@stewartsrecreation.com>',
+              to: 'stewarts@bellnet.ca',
+              bcc: 'jeff@stapleyinc.com',
+              subject: `New Contact Form Submission from ${data.name}`,
+              html: `
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> ${data.name}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+                <p><strong>Phone:</strong> ${data.phone}</p>
+                <p><strong>Vehicle Type:</strong> ${data.vehicleType || 'Not specified'}</p>
+                <p><strong>Message:</strong></p>
+                <p>${data.message}</p>
+                <hr>
+                <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
+              `
+            });
+
+        // 2. Confirmation email to customer
+        await resend.emails.send({
+          from: 'Stewarts Recreation <contact@stewartsrecreation.com>',
+          to: data.email,
+          subject: 'Thank you for contacting Stewarts Recreation',
+          html: `
+            <h2>Thank you for contacting us!</h2>
+            <p>Hi ${data.name},</p>
+            <p>We've received your message and will get back to you shortly.</p>
+            
+            <h3>Your Message:</h3>
+            <p><strong>Vehicle Type:</strong> ${data.vehicleType || 'Not specified'}</p>
+            <p><strong>Message:</strong></p>
+            <p>${data.message}</p>
+            
+            <hr>
+            <p><strong>Contact Us:</strong></p>
+            <p>Phone: (705) 382-3331</p>
+            <p>Email: stewarts@bellnet.ca</p>
+            <p>326 Ontario Street, Burk's Falls, ON P0A 1C0</p>
+            
+            <p><small>If you didn't submit this form, please disregard this email.</small></p>
+          `
+        });
+        
+        console.log('Emails sent successfully');
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+        // Don't fail the request if email fails - contact is already saved
+      }
 
       // 2. Confirmation email to customer
       await resend.emails.send({
