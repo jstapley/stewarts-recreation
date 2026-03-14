@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     try {
       await resend.emails.send({
         from: 'Stewarts Recreation <contact@stewartsrecreation.com>',
-        to: 'raystewart89@gmail.com', // Update with actual email
+        to: 'jeff@stapleyinc.com', // Update with actual email
         subject: `New Contact Form Submission from ${data.name}`,
         html: `
           <h2>New Contact Form Submission</h2>
