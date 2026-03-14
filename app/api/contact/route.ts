@@ -9,10 +9,10 @@ export async function POST(request: Request) {
     const data = await request.json();
     console.log('Received form data:', data);
     
-    // Initialize Supabase client
+    // Initialize Supabase client with service role key
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
     // Insert into Supabase
@@ -39,11 +39,12 @@ export async function POST(request: Request) {
 
     console.log('Contact saved to Supabase:', contactData);
 
-    // Send email notification via Resend
+    // Send emails
     try {
+      // 1. Notification email to business
       await resend.emails.send({
         from: 'Stewarts Recreation <contact@stewartsrecreation.com>',
-        to: 'jeff@stapleyinc.com', // Update with actual email
+        to: 'jeff@stapleyinc.com',
         subject: `New Contact Form Submission from ${data.name}`,
         html: `
           <h2>New Contact Form Submission</h2>
@@ -57,7 +58,33 @@ export async function POST(request: Request) {
           <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
         `
       });
-      console.log('Email sent successfully');
+
+      // 2. Confirmation email to customer
+      await resend.emails.send({
+        from: 'Stewarts Recreation <contact@stewartsrecreation.com>',
+        to: data.email,
+        subject: 'Thank you for contacting Stewarts Recreation',
+        html: `
+          <h2>Thank you for contacting us!</h2>
+          <p>Hi ${data.name},</p>
+          <p>We've received your message and will get back to you shortly.</p>
+          
+          <h3>Your Message:</h3>
+          <p><strong>Vehicle Type:</strong> ${data.vehicleType || 'Not specified'}</p>
+          <p><strong>Message:</strong></p>
+          <p>${data.message}</p>
+          
+          <hr>
+          <p><strong>Contact Us:</strong></p>
+          <p>Phone: (705) 382-3331</p>
+          <p>Email: stewarts@bellnet.ca</p>
+          <p>326 Ontario Street, Burk's Falls, ON P0A 1C0</p>
+          
+          <p><small>If you didn't submit this form, please disregard this email.</small></p>
+        `
+      });
+      
+      console.log('Emails sent successfully');
     } catch (emailError) {
       console.error('Email error:', emailError);
       // Don't fail the request if email fails - contact is already saved
@@ -78,8 +105,3 @@ export async function POST(request: Request) {
     }, { status: 500 });
   }
 }
-// Use service role key for server-side operations
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY! // Changed from ANON key
-);
