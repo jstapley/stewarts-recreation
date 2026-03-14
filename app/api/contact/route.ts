@@ -78,3 +78,8 @@ export async function POST(request: Request) {
     }, { status: 500 });
   }
 }
+// Use service role key for server-side operations
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY! // Changed from ANON key
+);
