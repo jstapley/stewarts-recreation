@@ -43,6 +43,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+  other: {
+    'ahrefs-site-verification': '445792aaad9f4f760971313d3f7e6311cdeebcb37967a315a61731d7fc76ba3c',
+  },
 }
 
 export default function RootLayout({
