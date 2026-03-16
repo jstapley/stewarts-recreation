@@ -8,6 +8,21 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
     console.log('Received form data:', data);
+
+    // Verify Turnstile token
+    const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: process.env.TURNSTILE_SECRET_KEY,
+        response: data.turnstileToken,
+      }),
+    });
+    const verifyData = await verifyRes.json();
+    if (!verifyData.success) {
+      console.error('Turnstile verification failed:', verifyData);
+      return NextResponse.json({ success: false, error: 'CAPTCHA verification failed' }, { status: 400 });
+    }
     
     // Initialize Supabase client with service role key
     const supabase = createClient(
